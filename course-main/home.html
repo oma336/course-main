@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>recipe omlette</title>
+        <img src="C:\Users\Ahmad\Downloads\course-main\course-main\omlit.jpg"alt="omlit" height="350" width="550" >
+        <style>
+            body{
+                background-color: aqua;
+                text-align: center;
+                width: 30%;
+                height: 30%;
+                margin-left: 35%;
+            }
+            h1{
+                color: red;
+            }
+        
+            p{
+                color: green;
+            }
+            
+            .style-1{
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="hellofunction()">click here</button>
+        <h1>simple omlette recipe</h1>
+        <p id="p1">an easy and quick 
+        <button id="button1">change color1</button>
+             perfect for any meal ,this classic omelette combines beaten eggs cooked to perfection, optionally filled whith your choice of cheese , vegetables, or meats.</p>
+             <section class="style-1">
+        <h3>preparation time</h3>
+
+            <li><strong>total:</strong> 10 munites</li>
+
+            <li ><strong>preparation:</strong> 5minutes</li>
+
+            <li><strong>cooking:</strong> 5minutes</li>
+            </section>
+            <h1>ingredients</h1>
+            <li><strong>2-3large eggs</strong></li>
+            <li><strong>salt,too taste</strong></li>
+            <li><strong>pepper,too salt</strong></li>
+            <li><strong>1table spoon of butter or oil</strong></li>
+            <li><strong>optional fillings :cheese,diced vegetables,cooked meats,hearbs</strong></li>
+             
+            <h1>instructions</h1>
+          
+            
+            
+<li>1.<strong>beat the eggs:</strong>in a bowl beat the eggs whith a pinchof salt and pepper until they are will mixed,you can add a tablespoon of water or milk. </li>
+<li>2.<strong>heat the pan:</strong>place a non-stick fryinga panover medium heat and add butter or optional. </li>
+<li>3.<strong>cook the omelette:</strong>once the butter is melted and bubbling,pour in the eggs tilt the pan to ensure the eggs evenly coat the surface.</li>
+<li>4.<strong>add fillings(optional):</strong>when the eggs begin to set atthe edges but are still slightly runny in the middle,sprinkle your chosen fillings over one half of the omelette.</li>
+<li>5.<strong>fold and sereve:</strong>as the omelette continues to cook,carefully lift one edgeand fold it over the fillings,let it took for another minute,then slide it into a plate.</li>
+<li>6.<strong>enjoy</strong>serve hot,whith additional salt and pepper if needed.</li>
+</li>
+<h1>nutrition</h1>
+<p id="text">the table below shows nutritional values per serving whithout the additional fillings</p>
+<table border="1">
+    <tr>
+        <th>calories</th>
+        <th>carbs</th>
+        <th>protein</th>
+        <th>fat</th>
+    </tr>
+    <tr>
+        <td>277kcal</td>
+        <td>0g</td>
+        <td>20g</td>
+        <td>22g</td>
+    </tr>
+</table>
+
+<p id="text"></p>
+
+    <script>
+        var h1element = document.querySelector('h1');
+        h1element.innerHTML = "modify the text using javascript"
+        var p1 = document.getElementById('p1');
+        p1.innerHTML ="paragraph 1 changed using js";
+        function hellofunction(){
+            var textvar = document.getElementById('text');
+            textvar.innerHTML ="botton clicked! hello";
+
+        }
+    </script>
+    <script src="omar.js"></script>
+    </body>
+</html>
