@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>learning web</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f3f3f3;
+      margin: 0;
+    }
+    .navbar {
+      background: white;
+      padding: 10px;
+      text-align: center;
+    }
+    .navbar a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: black;
+    }
+    .header {
+      background: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .cards {
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      display: inline-block;
+      width:180px;
+      margin: 10px;
+      padding:  20px;
+      text-align: left;
+    }
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #ccc;
+      border-radius: 50%;
+      margin-right: 3px;
+    }
+    .dot.active {
+      background: #007bff;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <strong style="color: #007bff;">Logo</strong>
+    <a href="#">Home</a>
+    <a href="#">HTML</a>
+    <a href="#">CSS</a>
+    <a href="#">JavaScript</a>
+  </div>
+
+  <div class="header">
+    <h2>Master Web Development Through Practice</h2>
+    <p>Learn HTML, CSS, and JavaScript with simple practice.</p>
+    <button id="start-learning">Start Learning</button>
+
+  </div>
+  <div class="cards">
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML Icon" width="50">
+        
+
+      <h3>HTML Basics</h3>
+      <p>Learn the building blocks of web pages Through interactive exercises and real-world examples</p>
+      <div>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <button id="start-html">Start</button>
+    </div>
+
+    <div class="card">
+      <h3>CSS Styling</h3>
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS Icon" width="50">\
+
+
+      <p>master the art of Styling web pages with hands-on css exercises and modern design techniques.</p>
+      <div>
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+      <button id="start-css">Start</button>
+    </div>
+
+    <div class="card">
+        
+      <h3>JavaScript</h3>
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JS Icon" width="50">
+
+
+      <p>build interactive web application with step-by-step javascript coding challenges.</p>
+      <div>
+
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+        <span class="dot active"></span>
+      </div>
+    <button id="start-javascript">Start</button>
+    </div>
+  </div>
+  <script>
+  // عند الضغط على زر HTML
+  document.getElementById("start-html").onclick = function() {
+    alert("أنت بدأت تعلم HTML!");
+  };
+
+  // عند الضغط على زر CSS
+  document.getElementById("start-css").onclick = function() {
+    alert("أنت بدأت تعلم CSS!");
+  };
+
+  // عند الضغط على زر JavaScript
+  document.getElementById("start-js").onclick = function() {
+    alert("أنت بدأت تعلم JavaScript!");
+  };
+  
+
+</script>
+
+</body>
+<script>
+  // لما أضغط على الزر
+  document.getElementById("start-learning").onclick = function() {
+    // أنشئ عنصر البوب أب
+    let popup = document.createElement("div");
+    popup.style.position = "fixed";
+    popup.style.top = "50%";
+    popup.style.left = "50%";
+    popup.style.transform = "translate(-50%, -50%)";
+    popup.style.background = "#ffffff";
+    popup.style.padding = "30px";
+    popup.style.boxShadow = "0 0 15px rgba(0,0,0,0.2)";
+    popup.style.borderRadius = "10px";
+    popup.style.textAlign = "center";
+    popup.style.zIndex = "1000";
+
+    // محتوى البوب أب
+    popup.innerHTML = `
+      <h3>🚀 أهلاً بك!</h3>
+      <p>أنت الآن تبدأ رحلتك في تعلم تطوير الويب.</p>
+      <button onclick="this.parentElement.remove()" style="margin-top:15px;padding:8px 16px;background:#007bff;color:white;border:none;border-radius:5px;">هيا نبدأ</button>
+    `;
+
+    document.body.appendChild(popup);
+  };
+</script>
+
+</html>

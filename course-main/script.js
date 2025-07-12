@@ -20,6 +20,6 @@ async function getWeather() {
     `;
     document.getElementById("weatherResult").innerHTML = result;
   } else {
-    document.getElementById("weatherResult").innerHTML = "مشمس";
+    document.getElementById("weatherResult").innerHTML = "لم يتم العثور على المدينة. يرجى التحقق من الاسم وإعادة المحاولة.";
   }
 }
