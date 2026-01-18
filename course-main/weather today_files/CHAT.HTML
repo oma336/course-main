@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>المجموعة</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Tahoma", sans-serif;
+    overflow: hidden;
+  }
+  /* الصفحة الرئيسية */
+  #home {
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+  }
+  #home h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+  }
+  #home button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: #ff7e5f;
+    color: #fff;
+    transition: 0.3s;
+  }
+  #home button:hover {
+    background: #ff4e00;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  /* صفحة الشات */
+  #chatPage {
+    display: none;
+    background: linear-gradient(135deg, #fceabb, #f8b500);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+  .chat-box {
+    width: 90%;
+    max-width: 500px;
+    height: 70vh;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  }
+  .msg {
+    background: #e1f7d5;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px 0;
+    animation: fadeIn 0.5s ease;
+    max-width: 70%;
+  }
+  .msg img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  .controls {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    width: 90%;
+    max-width: 500px;
+  }
+  input, button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+  }
+  input {
+    flex: 1;
+    border: 1px solid #ccc;
+  }
+  button {
+    background: #f8b500;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: #ff9900;
+  }
+</style>
+</head>
+<body>
+
+<!-- الصفحة الرئيسية -->
+<div id="home">
+  <h1></h1> أدخل 💖</h1>
+  <button onclick="enterChat()">ادخل على الشات</button>
+</div>
+
+<!-- صفحة الشات -->
+<div id="chatPage">
+  <div class="chat-box" id="chat"></div>
+  <div class="controls">
+    <input type="text" id="msgInput" placeholder="اكتب رسالة...">
+    <button onclick="sendMsg()">إرسال</button>
+    <input type="file" id="imgInput" accept="image/*" onchange="sendImg()">
+  </div>
+</div>
+
+<!-- الأصوات -->
+<audio id="sendSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
+
+<!-- موسيقى خلفية -->
+<audio id="bgMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop autoplay></audio>
+
+<script>
+  const chat = document.getElementById("chat");
+  const msgInput = document.getElementById("msgInput");
+  const sendSound = document.getElementById("sendSound");
+  const clickSound = document.getElementById("clickSound");
+  const bgMusic = document.getElementById("bgMusic");
+
+  function enterChat() {
+    clickSound.play();
+    document.getElementById("home").style.display = "none";
+    document.getElementById("chatPage").style.display = "flex";
+  }
+
+  function sendMsg() {
+    const text = msgInput.value.trim();
+    if (text === "") return;
+    const div = document.createElement("div");
+    div.className = "msg";
+    div.innerText = text;
+    chat.appendChild(div);
+    msgInput.value = "";
+    chat.scrollTop = chat.scrollHeight;
+    sendSound.play();
+  }
+
+  function sendImg() {
+    const file = document.getElementById("imgInput").files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const div = document.createElement("div");
+      div.className = "msg";
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      div.appendChild(img);
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+      sendSound.play();
+    }
+    reader.readAsDataURL(file);
+  }
+</script>
+
+</body>
+</html>
